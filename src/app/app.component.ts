@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import * as $ from 'jquery';
+import { Component, ViewChild } from '@angular/core';
+import { CalendarComponent } from './calendar/calendar.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,27 @@ import * as $ from 'jquery';
 })
 export class AppComponent {
   title = 'calendar';
+  form = {
+    startDate: '2018/08/01',
+    number: 180
+  };
+  error = false;
+  errorMessage = '';
 
-  constructor() { }
+  @ViewChild(CalendarComponent) calendarComponent;
+
+  generateCalendar() {
+    this.error = false;
+    if (!moment(this.form.startDate, 'YYYY/mm/dd').isValid()) {
+      this.error = true;
+      this.errorMessage = 'The format date is YYYY/mm/dd';
+    }
+
+    if (this.form.number < 0) {
+      this.error = true;
+      this.errorMessage = 'Number must be integer';
+    }
+
+    this.calendarComponent.renderValidDays();
+  }
 }

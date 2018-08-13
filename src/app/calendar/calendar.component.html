@@ -1,19 +1,28 @@
-<div class="row">
-  <div class="col-md-3" *ngFor="let calendar of allCalendars">
-    <div class="card bg-light mt-4">
-      <div class="card-header p-0">
-        <div class="row no-gutters">
-          <div class="col-sm text-center p-2">
-            SomeMonth 2018
+<div [hidden]="getObjectKeys().length === 0">
+  <div class="row">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" (click)="up()" class="btn btn-secondary">Add 1 day</button>
+      <button type="button" (click)="down()" class="btn btn-secondary">Substract 1 day</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3" *ngFor="let calendar of getObjectKeys()">
+      <div class="card bg-light mt-4">
+        <div class="card-header p-0">
+          <div class="row no-gutters">
+            <div class="col-sm text-center p-2">
+              {{calendar}}
+            </div>
+          </div>
+          <div class="row no-gutters">
+            <div *ngFor="let day of daysOfWeek" class="col-sm border text-center"> {{day}} </div>
           </div>
         </div>
-        <div class="row no-gutters">
-          <div *ngFor="let day of daysOfWeek" class="col-sm border text-center"> {{day}} </div>
-        </div>
-      </div>
-      <div class="card-body p-0">
-        <div *ngFor="let week of calendar" class="row no-gutters">
-          <div *ngFor="let numberDay of week" class="col-sm border text-center"> {{numberDay}} </div>
+        <div class="card-body p-0">
+          <div *ngFor="let week of allCalendars[calendar]" class="row no-gutters">
+            <div *ngFor="let day of week" class="col-sm border text-center" [ngClass]="day.classes"> {{day.numberDay}} </div>
+          </div>
         </div>
       </div>
     </div>

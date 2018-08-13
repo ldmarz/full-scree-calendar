@@ -1,0 +1,12 @@
+app-calendar .is-weekend {
+  background-color: yellow;
+}
+
+app-calendar .is-regular-day {
+  background-color:lightgreen;
+}
+
+app-calendar .is-invalid {
+  background-color: grey;
+  color: grey;
+}

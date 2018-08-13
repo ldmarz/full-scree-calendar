@@ -5,22 +5,27 @@
     <form class="form-inline">
       <div class="form-row">
         <div class="col flex-grow-1">
-          <input type="text" class="form-control" placeholder="Start date">
+          <input type="text" class="form-control" [(ngModel)]="form.startDate" placeholder="yyyy/mm/dd" name="startDate">
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="days">
+          <input type="number" min="0" class="form-control" placeholder="days" [(ngModel)]="form.number" name="number">
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Country code">
+          <input type="text" class="form-control" placeholder="Country code" [(ngModel)]="form.countryCode" name="countryCode">
         </div>
         <div class="col">
-          <button type="button" class="btn btn-info">Generate</button>
+          <button type="button" (click)="generateCalendar();" class="btn btn-info">Generate</button>
         </div>
       </div>
     </form>
   </div>
 </nav>
+<div class="alert alert-danger" role="alert" [hidden]="!error">
+  {{errorMessage}}
+</div>
 
 <div class="container-fluid p-5">
-  <app-calendar></app-calendar>
+  <app-calendar [selectedDate]="form.startDate" [number]="form.number">
+
+  </app-calendar>
 </div>
