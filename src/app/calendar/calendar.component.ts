@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import * as moment from 'moment';
+import isHoliday from './moment-holiday';
 import _ from 'lodash';
 
 @Component({
@@ -16,6 +17,7 @@ export class CalendarComponent {
 
   @Input() selectedDate: any;
   @Input() number: any;
+  @Input() countryCode: any;
 
   constructor() { }
 
@@ -128,6 +130,11 @@ export class CalendarComponent {
     if (this.isInvalidDate(day, month)) {
       classes.push('is-invalid');
     }
+
+    if (isHoliday(day, this.countryCode)) {
+      classes.push('is-holiday');
+    }
+
     return classes;
   }
 

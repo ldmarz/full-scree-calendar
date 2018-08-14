@@ -10,3 +10,7 @@ app-calendar .is-invalid {
   background-color: grey;
   color: grey;
 }
+
+app-calendar .is-holiday {
+  background-color: lightblue !important;
+}

@@ -11,7 +11,8 @@ export class AppComponent {
   title = 'calendar';
   form = {
     startDate: '2018/08/01',
-    number: 180
+    number: 180,
+    countryCode: 'United States'
   };
   error = false;
   errorMessage = '';
@@ -28,6 +29,11 @@ export class AppComponent {
     if (this.form.number < 0) {
       this.error = true;
       this.errorMessage = 'Number must be integer';
+    }
+
+    if (this.form.countryCode === '') {
+      this.error = true;
+      this.errorMessage = 'Country code is required';
     }
 
     this.calendarComponent.renderValidDays();
