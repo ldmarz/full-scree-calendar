@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path docs",
+    "build": "ng build --output-path docs --base-href https://ldmarz.github.io/full-scree-calendar/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
