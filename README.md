@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Live demo
 
-go to [http://35.190.12.147/index.html](http://35.190.12.147/index.html)
+go to [https://ldmarz.github.io/full-scree-calendar/](https://ldmarz.github.io/full-scree-calendar/)
 
 ## Build
 
